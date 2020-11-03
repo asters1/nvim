@@ -73,6 +73,8 @@ color snazzy
 " ===
 "警告:出现了pyx之类的  请运行
 "python3 -m pip install --user --upgrade pynvim
+"pip install pylint
+"pip install jedi
 let g:coc_global_extensions = [
         \ 'coc-actions',
         \ 'coc-css',
