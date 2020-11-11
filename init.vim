@@ -31,7 +31,7 @@ exec "nohlsearch"
 
 noremap j l
 noremap l j
-noremap  u
+noremap <C-z> u
 noremap <LEADER><CR> :nohlsearch<CR>
 
 map <C-q> :q!<CR>
