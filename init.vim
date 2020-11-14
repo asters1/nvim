@@ -33,6 +33,10 @@ noremap j l
 noremap l j
 noremap <C-z> u
 noremap <LEADER><CR> :nohlsearch<CR>
+noremap , 0
+noremap . $
+
+
 
 map <C-q> :q!<CR>
 map <C-s> :w<CR>
