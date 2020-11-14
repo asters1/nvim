@@ -170,3 +170,8 @@ let g:coc_snippet_prev = '<c-n>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
 let g:snips_author = 'David Chen'
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+
+
+"template
+autocmd BufNewFile *.py 0r ~/.config/nvim/template/python.py
+
