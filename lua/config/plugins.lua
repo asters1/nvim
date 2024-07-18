@@ -15,7 +15,7 @@ vim.keymap.set("n", "<leader><leader>", ":Lazy<CR>", { noremap = true })
 
 require("lazy").setup({
   --  主题
-  -- require("config.plugins.colorscheme").background,
+  require("config.plugins.colorscheme").background,
   require("config.plugins.colorscheme").statusline2,
   -- 注释
   require("config.plugins.comment"),
