@@ -33,7 +33,7 @@ return{
     --hint_prefix = "🐼 ",                      -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
     --hint_prefix = "🐧 ",
     --hint_prefix = "🦔 ",
-    hint_prefix = "🦫 ",
+    hint_prefix = "⚡",
     hint_scheme = "String",
     hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
     handler_opts = {
