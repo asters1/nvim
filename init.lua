@@ -1,5 +1,6 @@
 -- HOME = os.getenv("HOME")
 
+
 HOME = "C:\\Users\\ASTERS\\AppData\\Local\\nvim"
 gh = "https://github.wisteria.cf/"
 -- print(HOME)
