@@ -1,0 +1,5 @@
+#include <stdio.h>
+int main() {  
+   printf("c语言!\n");  
+   return 0;  
+}
