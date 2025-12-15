@@ -1,91 +1,91 @@
 -- auto code completion
 
 return {
-  
-  gh..'hrsh7th/nvim-cmp',
+
+  gh .. 'hrsh7th/nvim-cmp',
   event = { 'BufReadPre', 'BufNewFile', 'VimEnter' },
   dependencies = {
-    gh..'hrsh7th/cmp-nvim-lsp', -- lsp auto-completion
-    gh..'hrsh7th/cmp-buffer', -- source for text in buffer
-    gh..'hrsh7th/cmp-path', -- source for file system paths
-    gh..'hrsh7th/cmp-cmdline', -- cmdline auto-completion
-   gh.. 'saadparwaiz1/cmp_luasnip', -- for autocompletion
-    gh..'xzbdmw/colorful-menu.nvim',
+    gh .. 'hrsh7th/cmp-nvim-lsp',     -- lsp auto-completion
+    gh .. 'hrsh7th/cmp-buffer',       -- source for text in buffer
+    gh .. 'hrsh7th/cmp-path',         -- source for file system paths
+    gh .. 'hrsh7th/cmp-cmdline',      -- cmdline auto-completion
+    gh .. 'saadparwaiz1/cmp_luasnip', -- for autocompletion
+    gh .. 'xzbdmw/colorful-menu.nvim',
     {
-     gh.. 'L3MON4D3/LuaSnip',
+      gh .. 'L3MON4D3/LuaSnip',
       -- follow latest release.
       version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
       -- install jsregexp (optional!).
       build = 'make install_jsregexp',
     },
-   gh.. 'rafamadriz/friendly-snippets', -- useful snippets
-   gh.. 'onsails/lspkind.nvim', -- vs-code like pictograms
+    gh .. 'rafamadriz/friendly-snippets', -- useful snippets
+    gh .. 'onsails/lspkind.nvim',         -- vs-code like pictograms
   },
   config = function()
     local cmp = require('cmp')
-local kind_icons = {
-        -- Class = '🅒',
-        Class = "∴",
-        -- Color = '☀',
-        -- Color = '⛭',
-        Color = "🖌",
-        -- Constant = 'π',
-        Constant = "𝜋",
-        Constructor = "⬡",
-        -- Constructor = '⌬',
-        -- Constructor = '⎔',
-        -- Constructor = '⚙',
-        -- Constructor = 'ᲃ',
-        Enum = "",
-        EnumMember = "",
-        Event = "",
-        -- Field = '→',
-        -- Field = '∴',
-        --Field = '🠶',
-        Field = "",
-        File = "",
-        Folder = "",
-        Function = "ƒ",
-        -- Function = 'λ',
-        Interface = "",
-        --Keyword = '🗝',
-        Keyword = "",
-        Method = "𝘮",
-        -- Method = 'λ',
-        --Module = '📦',
-        Module = "",
-        Operator = "≠",
-        -- Operator = '±',
-        -- Property = '::',
-        Property = "∷",
-        -- Reference = '⌦',
-        Reference = "⊷",
-        -- Reference = '⊶',
-        -- Reference = '⊸',
-        -- Snippet = '',
-        -- Snippet = '↲',
-        -- Snippet = '♢',
-        -- Snippet = '<>',
-        Snippet = "{}",
-        Struct = "",
-        --Text = '#',
-        -- Text = '♯',
-        -- Text = 'ⅵ',
-        -- Text = "¶",
-        -- Text = "𝒯",
-        Text = "T",
-        --Text = "𝓣",
-        -- Text = "𐄗",
-        TypeParameter = "×",
-        Unit = "()",
-        -- Value           =
-        -- Variable = '𝛼',
-        -- Variable = 'χ',
-        Variable = "𝓧",
-        -- Variable = '𝛸',
-        -- Variable = 'α',
-        -- Variable = '≔',
-      }
+    local kind_icons = {
+      -- Class = '🅒',
+      Class = "∴",
+      -- Color = '☀',
+      -- Color = '⛭',
+      Color = "🖌",
+      -- Constant = 'π',
+      Constant = "𝜋",
+      Constructor = "⬡",
+      -- Constructor = '⌬',
+      -- Constructor = '⎔',
+      -- Constructor = '⚙',
+      -- Constructor = 'ᲃ',
+      Enum = "",
+      EnumMember = "",
+      Event = "",
+      -- Field = '→',
+      -- Field = '∴',
+      --Field = '🠶',
+      Field = "",
+      File = "",
+      Folder = "",
+      Function = "ƒ",
+      -- Function = 'λ',
+      Interface = "",
+      --Keyword = '🗝',
+      Keyword = "",
+      Method = "𝘮",
+      -- Method = 'λ',
+      --Module = '📦',
+      Module = "",
+      Operator = "≠",
+      -- Operator = '±',
+      -- Property = '::',
+      Property = "∷",
+      -- Reference = '⌦',
+      Reference = "⊷",
+      -- Reference = '⊶',
+      -- Reference = '⊸',
+      -- Snippet = '',
+      -- Snippet = '↲',
+      -- Snippet = '♢',
+      -- Snippet = '<>',
+      Snippet = "{}",
+      Struct = "",
+      --Text = '#',
+      -- Text = '♯',
+      -- Text = 'ⅵ',
+      -- Text = "¶",
+      -- Text = "𝒯",
+      Text = "T",
+      --Text = "𝓣",
+      -- Text = "𐄗",
+      TypeParameter = "×",
+      Unit = "()",
+      -- Value           =
+      -- Variable = '𝛼',
+      -- Variable = 'χ',
+      Variable = "𝓧",
+      -- Variable = '𝛸',
+      -- Variable = 'α',
+      -- Variable = '≔',
+    }
 
 
 
@@ -99,6 +99,7 @@ local kind_icons = {
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
     local snippets_path = vim.fn.stdpath('config') .. '/snippets'
+    -- print(snippets_path)
     local luasnip = require('luasnip')
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
@@ -185,8 +186,8 @@ local kind_icons = {
           end,
         },
         { name = 'luasnip' }, -- snippets
-        { name = 'buffer' }, -- text within current buffer
-        { name = 'path' }, -- file system paths
+        { name = 'buffer' },  -- text within current buffer
+        { name = 'path' },    -- file system paths
         { name = 'render-markdown' },
       }),
 
@@ -209,18 +210,18 @@ local kind_icons = {
           --  vim_item.kind = '' .. (strings[1] or '') .. ''
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 
---          vim_item.menu = '[' .. entry.source.name .. ']'
+          --          vim_item.menu = '[' .. entry.source.name .. ']'
           vim_item.menu = ({
-              -- omni = "[VimTex]",
-              omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
-              nvim_lsp = "[LSP]",
-              luasnip = "[Snippet]",
-              buffer = "[Buffer]",
-              spell = "[Spell]",
-              latex_symbols = "[Symbols]",
-              cmdline = "[CMD]",
-              path = "[Path]",
-            })[entry.source.name]
+            -- omni = "[VimTex]",
+            omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
+            nvim_lsp = "[LSP]",
+            luasnip = "[Snippet]",
+            buffer = "[Buffer]",
+            spell = "[Spell]",
+            latex_symbols = "[Symbols]",
+            cmdline = "[CMD]",
+            path = "[Path]",
+          })[entry.source.name]
 
           return vim_item
         end,

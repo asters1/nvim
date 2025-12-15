@@ -1,0 +1,19 @@
+{
+  "name": "my-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./vue-ts-normal.json"
+      },
+      {
+        "language": "vue",
+        "path": "./vue-ts-normal.json"
+      },
+      {
+        "language": "lua",
+        "path": "./lua.json"
+      }
+    ]
+  }
+}
