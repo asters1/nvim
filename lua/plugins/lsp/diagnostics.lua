@@ -2,6 +2,7 @@
 
 return function()
   local style = require('core.custom-style')
+
   local color_table = style.color_table
   local border = style.border
   vim.diagnostic.config({
@@ -26,10 +27,11 @@ return function()
     severity_sort = true, -- 按严重程度排序诊断信息
     signs = {
       text = {
-        [vim.diagnostic.severity.ERROR] = '',
-        [vim.diagnostic.severity.WARN] = '',
+        [vim.diagnostic.severity.ERROR] = '✘',
+        [vim.diagnostic.severity.WARN] = '⚠',
         [vim.diagnostic.severity.INFO] = '',
         [vim.diagnostic.severity.HINT] = '',
+
       },
       texthl = {
         [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
