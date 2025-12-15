@@ -29,7 +29,7 @@ return {
       vim.diagnostic.jump({ count = 1, float = true, severity = vim.diagnostic.severity.ERROR })
     end, { desc = "跳转到下一个诊断错误信息并悬浮显示" })
     vim.keymap.set("n", "g.", function()
-      vim.diagnostic.jump({ count = 1, float = true, severity = vim.diagnostic.severity.ERROR })
+      vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.ERROR })
     end, { desc = "跳转到上一个诊断错误信息并悬浮显示" })
 
     vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
