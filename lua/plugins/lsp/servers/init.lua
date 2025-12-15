@@ -1,0 +1,30 @@
+return function()
+  -- Golang
+  require('plugins.lsp.servers.go')()
+  -- Lua
+  require('plugins.lsp.servers.lua')()
+
+  -- Vue
+  require('plugins.lsp.servers.vue')()
+
+  -- ESLint
+  require('plugins.lsp.servers.eslint')()
+
+  -- Biome
+  -- require('plugins.lsp.servers.biome')()
+
+  -- Css
+  require('plugins.lsp.servers.css')()
+
+  -- Html
+  require('plugins.lsp.servers.html')()
+
+  -- Emmet
+  require('plugins.lsp.servers.emmet')()
+
+  -- Yaml
+  require('plugins.lsp.servers.yaml')()
+
+  -- Json
+  require('plugins.lsp.servers.json')()
+end
