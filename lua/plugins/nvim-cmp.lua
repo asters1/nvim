@@ -40,23 +40,27 @@ return {
     local cmp = require('cmp')
     local kind_icons = {
       -- Class = '🅒',
-      Class = "∴",
+      Class = "C",
       -- Color = '☀',
       -- Color = '⛭',
       Color = "🖌",
       -- Constant = 'π',
-      Constant = "𝜋",
+      -- 常量
+      Constant = "π",
+      -- 构造函数
       Constructor = "⬡",
       -- Constructor = '⌬',
       -- Constructor = '⎔',
       -- Constructor = '⚙',
       -- Constructor = 'ᲃ',
+      -- 序列化
       Enum = "",
       EnumMember = "",
       Event = "",
       -- Field = '→',
       -- Field = '∴',
       --Field = '🠶',
+      -- 成员变量
       Field = "",
       File = "",
       Folder = "",
@@ -81,7 +85,9 @@ return {
       -- Snippet = '↲',
       -- Snippet = '♢',
       -- Snippet = '<>',
+      -- 代码片段
       Snippet = "{}",
+      -- 结构体
       Struct = "",
       --Text = '#',
       -- Text = '♯',
@@ -96,7 +102,7 @@ return {
       -- Value           =
       -- Variable = '𝛼',
       -- Variable = 'χ',
-      Variable = "𝓧",
+      Variable = "X",
       -- Variable = '𝛸',
       -- Variable = 'α',
       -- Variable = '≔',
@@ -140,6 +146,7 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+
       mapping = cmp.mapping.preset.insert({
         ['<C-e>'] = cmp.mapping.abort(), -- close completion window
         ['<CR>'] = cmp.mapping.confirm({ select = true }),

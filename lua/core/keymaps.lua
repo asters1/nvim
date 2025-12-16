@@ -10,6 +10,7 @@ local mode_i = { "i" }
 vim.cmd([[
 map , 0
 map . $
+map # gcc
 ]])
 local nmappings = {
   -- --------------  map  ---------- ---
@@ -32,7 +33,7 @@ local nmappings = {
   { from = "q",               to = "ZZ" },
   { from = "Q",               to = "ZZ" },
 
-  --{ from = "#",               to = "gcc" },
+  -- { from = "#",               to = "gcc" },
   --R重新加载init.lua
   { from = "R",               to = "<ESC>:w<CR>:so<CR>" },
 
