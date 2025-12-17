@@ -132,43 +132,82 @@ return {
     luasnip.filetype_extend('typescriptreact', { 'javascript' })
     luasnip.filetype_extend('javascriptreact', { 'javascript' })
 
+    local select_opts = { behavior = cmp.SelectBehavior.Select }
+
     cmp.setup({
-      performance = {
-        max_view_entries = 30,
-        debounce = 30,
-      },
-      completion = {
-        keyword_length = 0,
-        completeopt = 'menu,menuone,preview,select',
-      },
-      snippet = { -- configure how nvim-cmp interacts with snippet engine
+      preselect = cmp.PreselectMode.None,
+      snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
-
       mapping = cmp.mapping.preset.insert({
-        ['<C-e>'] = cmp.mapping.abort(), -- close completion window
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        ['<Tab>'] = cmp.mapping(function(fallback)
-          if luasnip.jumpable(1) then
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-u>"] = cmp.mapping.scroll_docs(4),
+        ["<C-l>"] = cmp.mapping.complete(),
+        ["<CR>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        }),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
+        ["<Tab>"] = cmp.mapping.select_next_item(select_opts),
+        ["<C-n>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.jumpable(1) then
             luasnip.jump(1)
-          else
-            -- 默认 Tab 行为
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Tab>', true, false, true), 'n', false)
-          end
-        end),
-
-        ['<C-i>'] = cmp.mapping(function()
-          -- vscode like complete by <C-i>
-          if not cmp.visible() and has_words_before() then
+          elseif has_words_before() then
             cmp.complete()
+          else
+            fallback()
           end
-        end), -- i - insert mode; s - select mode
-        ['<C-y>'] = cmp.mapping(function(fallback)
-          fallback()
-        end),
-      }, { 'i' }),
+        end, { "i", "s" }),
+        ["<C-e>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        -- super tab GOOD! But I like tab to confirm
+        --["<tab>"] = cmp.mapping(function(fallback)
+        --if cmp.visible() then
+        --cmp.select_next_item()
+        --elseif luasnip.expand_or_jumpable() then
+        --luasnip.expand_or_jump()
+        --elseif has_words_before() then
+        --cmp.complete()
+        --else
+        --fallback()
+        --end
+        --end, { "i", "s" }),
+
+        --["<S-Tab>"] = cmp.mapping(function(fallback)
+        --if cmp.visible() then
+        --cmp.select_prev_item()
+        --elseif luasnip.jumpable(-1) then
+        --luasnip.jump(-1)
+        --else
+        --fallback()
+        --end
+        --end, { "i", "s" }),
+        --}),
+
+        -- ["<Tab>"] = cmp.mapping(function(fallback)
+        --   if cmp.visible() then
+        --     cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+        --   elseif require("luasnip").expand_or_jumpable() then
+        --     vim.fn.feedkeys(
+        --       vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
+        --       ""
+        --     )
+        --   else
+        --     fallback()
+        --   end
+        --      end, { "i", "s" }),
+      }),
       -- sources for autocompletion
       sources = cmp.config.sources({
         {
