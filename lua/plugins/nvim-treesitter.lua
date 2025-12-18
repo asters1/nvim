@@ -1,12 +1,12 @@
 -- code syntax highlight
 
 return {
-  'nvim-treesitter/nvim-treesitter',
+gh..  'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   enabled = true,
   dependencies = {
-    'nvim-treesitter/nvim-treesitter-context',
-    'nvim-treesitter/nvim-treesitter-textobjects',
+   gh.. 'nvim-treesitter/nvim-treesitter-context',
+gh..    'nvim-treesitter/nvim-treesitter-textobjects',
   },
   config = function()
     require('nvim-treesitter.configs').setup({
