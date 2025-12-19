@@ -11,6 +11,7 @@ vim.cmd([[
 map , 0
 map . $
 map # gcc
+map <C-/> gcc
 ]])
 local nmappings = {
   -- --------------  map  ---------- ---
