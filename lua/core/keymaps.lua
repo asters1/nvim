@@ -12,6 +12,7 @@ map , 0
 map . $
 map # gcc
 map <C-/> gcc
+imap <C-/> <ESC>:lua ImapComment()<CR>gcc:normal @s<CR>i
 ]])
 local nmappings = {
   -- --------------  map  ---------- ---
