@@ -1,7 +1,7 @@
 -- format
 
 return {
-  'stevearc/conform.nvim',
+  gh.. 'stevearc/conform.nvim',
   build = {
     'npm i -g prettier',
     'npm i -g @biomejs/biome@2.3.5',
